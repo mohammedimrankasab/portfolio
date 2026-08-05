@@ -116,7 +116,7 @@ export default function Hero({ personal }: HeroProps) {
               href={personal.links.resume}
               className="group inline-flex items-center gap-2 bg-white text-black px-6 py-2.5 rounded-full font-semibold hover:bg-zinc-200 transition"
               download
-              onClick={() => trackEvent("Resume", "Download", "Hero Section")}
+              onClick={() => trackEvent("resume", "resume_download", "hero")}
             >
               Download Resume
               <Download
@@ -138,7 +138,7 @@ export default function Hero({ personal }: HeroProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition"
-                onClick={() => trackEvent("Social", "GitHub", "Hero")}
+                onClick={() => trackEvent("social", "github_click", "hero")}
               >
                 <FaGithub size={22} />
               </a>
@@ -148,7 +148,7 @@ export default function Hero({ personal }: HeroProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition"
-                onClick={() => trackEvent("Social", "LinkedIn", "Hero")}
+                onClick={() => trackEvent("social", "linkedin_click", "hero")}
               >
                 <FaLinkedin size={22} />
               </a>

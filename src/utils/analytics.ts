@@ -11,14 +11,12 @@ export function pageView() {
   });
 }
 
-export function trackEvent(
-  category: string,
-  action: string,
-  label?: string
-) {
-  ReactGA.event({
-    category,
-    action,
-    label,
-  });
+export function trackEvent(category: string, action: string, label?: string) {
+  if (import.meta.env.PROD) {
+    ReactGA.event({
+      category,
+      action,
+      label,
+    });
+  }
 }
