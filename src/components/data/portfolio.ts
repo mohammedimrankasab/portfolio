@@ -35,7 +35,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       linkedin:
         "https://www.linkedin.com/in/mohammed-imran-kasab/",
       email: "mailto:imranmohammedk2@gmail.com",
-      resume: "/Kasab_Mohammed_Imran_Resume.pdf",
+      resume: `${import.meta.env.BASE_URL}Kasab_Mohammed_Imran_Resume.pdf`,
     },
   },
 
