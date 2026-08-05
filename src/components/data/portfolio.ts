@@ -1,25 +1,14 @@
-import {
-  Server,
-  Cloud,
-  Cpu,
-  Activity,
-} from "lucide-react";
+import { Server, Cloud, Cpu, Activity } from "lucide-react";
 
 import {
   SiGo,
   SiKubernetes,
   SiDocker,
   SiApachekafka,
-  SiPostgresql,
   SiPrometheus,
 } from "react-icons/si";
 
-import {
-  FaRobot,
-  FaProjectDiagram,
-} from "react-icons/fa";
-
-import { FaAws } from "react-icons/fa";
+import { FaRobot, FaProjectDiagram, FaAws, FaDatabase } from "react-icons/fa";
 import type { PortfolioData } from "../../types/portfolio";
 
 export const PORTFOLIO_DATA: PortfolioData = {
@@ -32,8 +21,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       "With over 13 years of experience in Backend Engineering, I specialize in architecting distributed systems, cloud infrastructure, and microservices. My core expertise lies in Go, Kubernetes, and designing highly available systems. Recently, I've been focused on AI Engineering, building RAG architectures and integrating LLMs to solve complex enterprise problems.",
     links: {
       github: "https://github.com/mohammedimrankasab",
-      linkedin:
-        "https://www.linkedin.com/in/mohammed-imran-kasab/",
+      linkedin: "https://www.linkedin.com/in/mohammed-imran-kasab/",
       email: "mailto:imranmohammedk2@gmail.com",
       resume: `${import.meta.env.BASE_URL}Kasab_Mohammed_Imran_Resume.pdf`,
     },
@@ -46,9 +34,9 @@ export const PORTFOLIO_DATA: PortfolioData = {
       description: "Building scalable backend platforms",
     },
     {
-      value: "50%",
-      label: "Performance Improvement",
-      description: "Optimized enterprise workflows",
+      value: "10+",
+      label: "Enterprise Products",
+      description: "Shipped to production",
     },
     {
       value: "Millions",
@@ -56,38 +44,38 @@ export const PORTFOLIO_DATA: PortfolioData = {
       description: "Processed across enterprise platforms",
     },
     {
-      value: "5+",
-      label: "Microservices",
-      description: "Designed production systems",
+      value: "100+",
+      label: "Production Deployments",
+      description: "Cloud-native releases",
     },
   ],
 
- highlights: [
-  {
-    title: "Backend Engineering",
-    description:
-      "13+ years building scalable backend systems, microservices, and enterprise platforms using Go, Java, and cloud-native technologies.",
-    icon: Server,
-  },
-  {
-    title: "Cloud Native Architecture",
-    description:
-      "Designed distributed systems using Kubernetes, Docker, CI/CD pipelines, observability, and production deployment practices.",
-    icon: Cloud,
-  },
-  {
-    title: "AI & Data Platforms",
-    description:
-      "Building AI-powered applications, metadata ingestion platforms, and RAG-based solutions using modern LLM technologies.",
-    icon: Cpu,
-  },
-  {
-    title: "Performance Engineering",
-    description:
-      "Improving reliability and performance using concurrency, asynchronous processing, caching, and architecture improvements.",
-    icon: Activity,
-  },
-],
+  highlights: [
+    {
+      title: "Backend Engineering",
+      description:
+        "13+ years building scalable backend systems, microservices, and enterprise platforms using Go, Java, and cloud-native technologies.",
+      icon: Server,
+    },
+    {
+      title: "Cloud Native Architecture",
+      description:
+        "Designed distributed systems using Kubernetes, Docker, CI/CD pipelines, observability, and production deployment practices.",
+      icon: Cloud,
+    },
+    {
+      title: "AI & Data Platforms",
+      description:
+        "Building AI-powered applications, metadata ingestion platforms, and RAG-based solutions using modern LLM technologies.",
+      icon: Cpu,
+    },
+    {
+      title: "Performance Engineering",
+      description:
+        "Improving reliability and performance using concurrency, asynchronous processing, caching, and architecture improvements.",
+      icon: Activity,
+    },
+  ],
 
   experience: [
     {
@@ -141,7 +129,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
         "Designed modular backend services supporting mortgage servicing, foreclosure, auction, and credit reporting platforms.",
         "Built REST APIs consumed by enterprise applications while improving maintainability through modular architecture.",
         "Designed MongoDB data models for mortgage modification documents, enabling efficient document storage, retrieval, and lifecycle management.",
-        "Delivered multiple production releases with zero critical post-release incidents through rigorous testing and collaboration."
+        "Delivered multiple production releases with zero critical post-release incidents through rigorous testing and collaboration.",
       ],
     },
   ],
@@ -149,184 +137,158 @@ export const PORTFOLIO_DATA: PortfolioData = {
   projects: [
     {
       title: "Metadata Ingestion Service",
+      repo: "Metadata-Ingestion-Service",
+
       description:
-        "High-throughput Go-based platform for ingesting, validating, and processing enterprise metadata from multiple sources.",
+        "Enterprise-grade metadata ingestion platform built in Go with pluggable connectors, worker pools, Prometheus metrics, graceful shutdown, retry mechanisms, and concurrent processing.",
+
       tech: [
         "Go",
-        "Microservices",
-        "Messaging",
+        "Kafka",
         "Docker",
-        "Worker Pools",
         "Prometheus",
+        "Worker Pools",
+        "OpenSearch",
       ],
+
       github:
         "https://github.com/mohammedimrankasab/Metadata-Ingestion-Service",
+
       demo: null,
+
       status: "Open Source",
-      color:
-        "from-blue-500/20 to-indigo-500/20",
-        icon: SiGo,
-        stars: 0,
-        forks: 0,
+
+      color: "from-blue-500/20 via-cyan-500/20 to-indigo-500/20",
+
+      icon: SiGo,
     },
+
     {
       title: "Pargo",
-      description:
-        "A lightweight, generic, context-aware concurrency library for Go (Map, Filter, Reduce).",
-      tech: [
-        "Go",
-        "Concurrency",
-        "Collections",
-        "Worker Pools",
-        "Generics"
-      ],
-      github:
-        "https://github.com/mohammedimrankasab/pargo",
-      demo: null,
-      status: "Open Source",
-      color:
-        "from-teal-500/20 to-emerald-500/20",
-        icon: FaProjectDiagram,
 
-        stars: 0,
-        forks: 0,
+      repo: "pargo",
+
+      description:
+        "A lightweight, generic, context-aware concurrency library for Go featuring Map, Filter, Reduce, Pipelines, cancellation support, configurable worker pools, and zero-dependency APIs.",
+
+      tech: ["Go", "Generics", "Concurrency", "Worker Pools", "Pipelines"],
+
+      github: "https://github.com/mohammedimrankasab/pargo",
+
+      demo: null,
+
+      status: "Open Source",
+
+      color: "from-emerald-500/20 via-teal-500/20 to-cyan-500/20",
+
+      icon: FaProjectDiagram,
     },
+
     {
       title: "RAG Chatbot",
-      description:
-        "Retrieval-Augmented Generation application using semantic search and LLM-based responses.",
-      tech: [
-        "Go",
-        "Python",
-        "LLM",
-        "Vector Search",
-      ],
-      github: "https://github.com/mohammedimrankasab/rag-service-go",
-      demo: null,
-      status: "Experimental",
-      color:
-        "from-orange-500/20 to-red-500/20",
-        icon: FaRobot,
 
-        stars: 0,
-        forks: 0,
+      repo: "rag-service-go",
+
+      description:
+        "Retrieval-Augmented Generation service using Go, vector embeddings, semantic search, LLM orchestration, and AI pipelines for enterprise knowledge retrieval.",
+
+      tech: ["Go", "LLM", "Vector DB", "RAG"],
+
+      github: "https://github.com/mohammedimrankasab/rag-service-go",
+
+      demo: null,
+
+      status: "Experimental",
+
+      color: "from-orange-500/20 via-red-500/20 to-pink-500/20",
+
+      icon: FaRobot,
     },
   ],
+  skills: {
+    Backend: {
+      icon: SiGo,
+      items: [
+        "Go",
+        "Java",
+        "Node.js",
+        "Python",
+        "REST APIs",
+        "Microservices",
+        "gRPC",
+      ],
+    },
 
-skills: {
-  Backend: {
-    icon: SiGo,
-    items: [
-      "Go",
-      "Java",
-      "Node.js",
-      "Python",
-      "Microservices",
-      "REST APIs",
-    ],
-  },
+    Kubernetes: {
+      icon: SiKubernetes,
+      items: ["Kubernetes", "Helm", "Operators", "Docker", "Terraform"],
+    },
 
-  "Cloud Native": {
-    icon: SiKubernetes,
-    items: [
-      "Kubernetes",
-      "Docker",
-      "Helm",
-      "Terraform",
-    ],
-  },
+    AWS: {
+      icon: FaAws,
+      items: ["EKS", "EC2", "S3", "IAM", "CloudWatch"],
+    },
 
-  AWS: {
-    icon: FaAws,
-    items: [
-      "EC2",
-      "EKS",
-      "S3",
-      "IAM",
-      "CloudWatch",
-    ],
-  },
+    Messaging: {
+      icon: SiApachekafka,
+      items: ["Kafka", "RabbitMQ", "NATS", "gRPC"],
+    },
 
-  Messaging: {
-    icon: SiApachekafka,
-    items: [
-      "Kafka",
-      "RabbitMQ",
-      "gRPC",
-    ],
-  },
+    Databases: {
+      icon: FaDatabase,
+      items: ["PostgreSQL", "OpenSearch", "Redis", "MongoDB", "MySQL"],
+    },
 
-  Databases: {
-    icon: SiPostgresql,
-    items: [
-      "OpenSearch",
-      "PostgreSQL",
-      "MySQL",
-      "Redis",
-      "MongoDB",
-      "Elasticsearch",
-    ],
+    Observability: {
+      icon: SiPrometheus,
+      items: ["Prometheus", "Grafana", "OpenTelemetry", "Jaeger"],
+    },
+
+    DevOps: {
+      icon: SiDocker,
+      items: [
+        "Docker",
+        "GitHub Actions",
+        "CI/CD",
+        "SonarQube",
+        "JFrog Xray",
+        "Dependabot",
+      ],
+    },
   },
 
-  Observability: {
-    icon: SiPrometheus,
-    items: [
-      "Prometheus",
-      "Grafana",
-      "OpenTelemetry",
-    ],
-  },
-
-  DevOps: {
-    icon: SiDocker,
-    items: [
-      "Docker",
-      "GitHub Actions",
-      "CI/CD",
-      "SAST: SonarQube",
-      "SCA: JFrog Xray, GitHub Dependabot, Black Duck",
-    ],
-  },
-},
-
-practices: [
-  {
-    title: "Architecture",
-    items: [
-      "System Design",
-      "Distributed Systems",
-      "Microservices",
-      "Event-Driven",
-      "REST APIs",
-      "gRPC",
-    ],
-  },
-  {
-    title: "Engineering",
-    items: [
-      "Agile",
-      "Scrum",
-      "CI/CD",
-      "GitOps",
-      "TDD",
-      "DDD",
-    ],
-  },
-  {
-    title: "Leadership",
-    items: [
-      "Technical Leadership",
-      "Mentoring",
-      "Architecture Reviews",
-      "Cross-functional Collaboration",
-      "Performance Optimization",
-      "Production Support",
-    ],
-  },
-],
+  practices: [
+    {
+      title: "Architecture",
+      items: [
+        "System Design",
+        "Distributed Systems",
+        "Microservices",
+        "Event-Driven",
+        "REST APIs",
+        "gRPC",
+      ],
+    },
+    {
+      title: "Engineering",
+      items: ["Agile", "Scrum", "CI/CD", "GitOps", "TDD", "DDD"],
+    },
+    {
+      title: "Leadership",
+      items: [
+        "Technical Leadership",
+        "Mentoring",
+        "Architecture Reviews",
+        "Cross-functional Collaboration",
+        "Performance Optimization",
+        "Production Support",
+      ],
+    },
+  ],
   certifications: [
     {
-      title: "LLM Foundations: Vector Databases for Caching and Retrieval Augmented Generation(RAG)",
+      title:
+        "LLM Foundations: Vector Databases for Caching and Retrieval Augmented Generation(RAG)",
       issuer: "LinkedIn Learning",
       year: "2026",
     },
@@ -336,8 +298,7 @@ practices: [
       year: "2026",
     },
     {
-      title:
-        "AWS Knowledge: Compute - Training Badge",
+      title: "AWS Knowledge: Compute - Training Badge",
       issuer: "AWS",
       year: "2026",
     },

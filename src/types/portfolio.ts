@@ -1,13 +1,22 @@
 import type { LucideIcon } from "lucide-react";
 import type { IconType } from "react-icons";
+import type { ComponentType } from "react";
 
 export interface Project {
   title: string;
+  repo: string;
   description: string;
   tech: string[];
-  github?: string;
+  github?: string | null;
   demo?: string | null;
-  status?: string;
+
+  status?:
+    | "Production"
+    | "Open Source"
+    | "Experimental"
+    | "In Progress"
+    | "Learning";
+
   color: string;
   icon: IconType;
 
@@ -45,19 +54,6 @@ export interface Experience {
   achievements: string[];
 }
 
-export interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  github?: string;
-  demo?: string | null;
-  status?: string;
-  color: string;
-  icon: IconType;
-}
-
-import type { ComponentType } from "react";
-
 export interface SkillCategory {
   icon: ComponentType<{ size?: number; className?: string }>;
   items: string[];
@@ -88,4 +84,18 @@ export interface PortfolioData {
   skills: Record<string, SkillCategory>;
   practices: PracticeCategory[];
   certifications: Certification[];
+}
+
+export interface GithubRepo {
+  id: number;
+  name: string;
+
+  stargazers_count: number;
+  forks: number;
+
+  language: string | null;
+
+  updated_at: string;
+
+  html_url: string;
 }
