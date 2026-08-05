@@ -17,6 +17,7 @@ import AnimatedCursor from "./components/ui/AnimatedCursor";
 import MouseGlow from "./components/ui/MouseGlow";
 import ScrollProgress from "./components/ui/ScrollProgress";
 import LoadingScreen from "./components/ui/LoadingScreen";
+import { initAnalytics, pageView } from "./utils/analytics";
 
 export default function PortfolioApp() {
   const [loading, setLoading] = useState(true);
@@ -28,15 +29,15 @@ export default function PortfolioApp() {
       document.documentElement.style.scrollBehavior = "auto";
     };
   }, []);
+  useEffect(() => {
+    initAnalytics();
+    pageView();
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#09090b] text-zinc-50 font-sans antialiased selection:bg-blue-500/30 selection:text-white">
       <AnimatePresence mode="wait">
-        {loading && (
-          <LoadingScreen
-            onComplete={() => setLoading(false)}
-          />
-        )}
+        {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
       </AnimatePresence>
 
       {!loading && (

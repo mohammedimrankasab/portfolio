@@ -3,6 +3,7 @@ import { Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import { fadeUpVar, staggerContainer } from "../utils/animations";
+import { trackEvent } from "../../utils/analytics";
 
 const particles = Array.from({ length: 8 }).map((_, index) => ({
   id: index,
@@ -77,7 +78,6 @@ export default function Hero({ personal }: HeroProps) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
             </span>
-
             Available for opportunities
           </motion.div>
 
@@ -101,10 +101,8 @@ export default function Hero({ personal }: HeroProps) {
             className="text-xl md:text-2xl text-zinc-400 max-w-2xl mb-8 leading-relaxed"
           >
             I'm{" "}
-            <span className="font-semibold text-white">
-              {personal.name}
-            </span>
-            , a {personal.headline}.
+            <span className="font-semibold text-white">{personal.name}</span>, a{" "}
+            {personal.headline}.
             <br className="hidden md:block" />
             {personal.subtitle}
           </motion.p>
@@ -117,9 +115,10 @@ export default function Hero({ personal }: HeroProps) {
             <a
               href={personal.links.resume}
               className="group inline-flex items-center gap-2 bg-white text-black px-6 py-2.5 rounded-full font-semibold hover:bg-zinc-200 transition"
+              download
+              onClick={() => trackEvent("Resume", "Download", "Hero Section")}
             >
               Download Resume
-
               <Download
                 size={18}
                 className="group-hover:-translate-y-1 group-hover:translate-x-1 transition"
@@ -139,6 +138,7 @@ export default function Hero({ personal }: HeroProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition"
+                onClick={() => trackEvent("Social", "GitHub", "Hero")}
               >
                 <FaGithub size={22} />
               </a>
@@ -148,6 +148,7 @@ export default function Hero({ personal }: HeroProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition"
+                onClick={() => trackEvent("Social", "LinkedIn", "Hero")}
               >
                 <FaLinkedin size={22} />
               </a>
@@ -166,9 +167,7 @@ export default function Hero({ personal }: HeroProps) {
         }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-500"
       >
-        <span className="text-xs uppercase tracking-[0.3em]">
-          Scroll
-        </span>
+        <span className="text-xs uppercase tracking-[0.3em]">Scroll</span>
 
         <motion.div
           animate={{
