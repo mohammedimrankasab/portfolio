@@ -161,6 +161,12 @@ export const PORTFOLIO_DATA: PortfolioData = {
       color: "from-blue-500/20 via-cyan-500/20 to-indigo-500/20",
 
       icon: SiGo,
+      highlights: [
+        "Processes millions of metadata records",
+        "Concurrent worker-based ingestion pipeline",
+        "Power BI, Tableau and MLflow connectors",
+      ],
+      quality: ["Docker", "Kubernetes", "Prometheus"],
     },
 
     {
@@ -182,6 +188,12 @@ export const PORTFOLIO_DATA: PortfolioData = {
       color: "from-emerald-500/20 via-teal-500/20 to-cyan-500/20",
 
       icon: FaProjectDiagram,
+      highlights: [
+        "High-performance generic concurrency library",
+        "Worker pools, Map, Filter and Reduce",
+        "Benchmark-driven optimizations",
+      ],
+      quality: ["Benchmarked", "Generics", "CI/CD"],
     },
 
     {
@@ -203,6 +215,34 @@ export const PORTFOLIO_DATA: PortfolioData = {
       color: "from-orange-500/20 via-red-500/20 to-pink-500/20",
 
       icon: FaRobot,
+    },
+    {
+      title: "Go Design Patterns",
+      repo: "go-design-patterns",
+      description:
+        "A production-oriented collection of Go design patterns implemented using real-world backend engineering scenarios. Each pattern focuses on idiomatic Go, dependency injection, comprehensive testing, and production-ready architecture rather than toy examples.",
+      tech: [
+        "Go",
+        "Design Patterns",
+        "Architecture",
+        "Testing",
+        "Backend",
+        "CI/CD",
+      ],
+      github: "https://github.com/mohammedimrankasab/go-design-patterns",
+      featured: true,
+      status: "Open Source",
+      color: "from-violet-500/20 via-indigo-500/20 to-blue-500/20",
+      icon: SiGo,
+      highlights: [
+        "Production-inspired implementations instead of toy examples",
+        "Creational and Structural patterns with comprehensive documentation",
+        "100% package coverage where practical",
+        "Race-tested and golangci-lint compliant",
+        "Idiomatic Go using interfaces and dependency injection",
+        "Designed as an interview and production reference",
+      ],
+      quality: ["MIT License", "CI/CD", "Race Tested", "100% Coverage"],
     },
   ],
   skills: {

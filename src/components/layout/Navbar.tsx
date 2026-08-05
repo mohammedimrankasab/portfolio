@@ -35,7 +35,7 @@ export default function Navbar() {
 
         {/* Brand */}
         <a
-          href="/"
+          href={import.meta.env.BASE_URL}
           className="flex flex-col leading-tight"
         >
           <span className="text-lg md:text-xl font-bold tracking-tight text-white uppercase">

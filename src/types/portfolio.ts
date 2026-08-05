@@ -10,6 +10,7 @@ export interface Project {
   github?: string | null;
   demo?: string | null;
 
+  featured?: boolean;
   status?:
     | "Production"
     | "Open Source"
@@ -22,6 +23,8 @@ export interface Project {
 
   stars?: number;
   forks?: number;
+  highlights?: string[];
+  quality?: string[];
 }
 
 export interface PersonalLinks {

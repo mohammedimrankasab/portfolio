@@ -4,29 +4,25 @@ import {
   GitFork,
   Star,
   Calendar,
+  CheckCircle2,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-
+import { formatRelativeDate } from "../utils/date";
 import { PORTFOLIO_DATA } from "../data/portfolio";
 import SectionHeading from "../ui/SectionHeading";
 import { fadeUpVar } from "../utils/animations";
 import { useGithubRepos } from "../hooks/useGithubRepos";
 
 const statusStyles: Record<string, string> = {
-  Production:
-    "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+  Production: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
 
-  "Open Source":
-    "bg-blue-500/20 text-blue-300 border-blue-500/30",
+  "Open Source": "bg-blue-500/20 text-blue-300 border-blue-500/30",
 
-  "In Progress":
-    "bg-amber-500/20 text-amber-300 border-amber-500/30",
+  "In Progress": "bg-amber-500/20 text-amber-300 border-amber-500/30",
 
-  Experimental:
-    "bg-purple-500/20 text-purple-300 border-purple-500/30",
+  Experimental: "bg-purple-500/20 text-purple-300 border-purple-500/30",
 
-  Learning:
-    "bg-zinc-700/40 text-zinc-300 border-zinc-600",
+  Learning: "bg-zinc-700/40 text-zinc-300 border-zinc-600",
 };
 
 export default function Projects() {
@@ -42,9 +38,7 @@ export default function Projects() {
         <div className="grid gap-8 lg:grid-cols-3">
           {PORTFOLIO_DATA.projects.map((project, index) => {
             const Icon = project.icon;
-            const stats = project.repo
-              ? repoStats[project.repo]
-              : undefined;
+            const stats = project.repo ? repoStats[project.repo] : undefined;
 
             return (
               <motion.article
@@ -83,11 +77,19 @@ export default function Projects() {
                 {/* Body */}
 
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="mb-3 text-xl font-bold text-white">
-                    {project.title}
-                  </h3>
+                  <div className="mb-3 flex items-center gap-2">
+                    <h3 className="text-xl font-bold text-white">
+                      {project.title}
+                    </h3>
 
-                  <p className="mb-5 min-h-[88px] leading-7 text-zinc-400">
+                    {project.featured && (
+                      <span className="rounded-full border border-yellow-500/30 bg-yellow-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-yellow-300">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="mb-5 leading-7 text-zinc-400">
                     {project.description}
                   </p>
 
@@ -104,55 +106,49 @@ export default function Projects() {
                     ))}
                   </div>
 
+                  {project.highlights && (
+                    <div className="mb-6 space-y-2">
+                      {project.highlights.slice(0, 3).map((highlight) => (
+                        <div
+                          key={highlight}
+                          className="flex items-start gap-2 text-sm text-zinc-400"
+                        >
+                          <CheckCircle2
+                            size={16}
+                            className="mt-0.5 shrink-0 text-emerald-400"
+                          />
+
+                          <span>{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   {/* Footer */}
 
                   <div className="mt-auto border-t border-zinc-800 pt-5">
-                    <div className="mb-4 flex flex-wrap items-center gap-4 text-sm text-zinc-400">
-                      <div className="flex items-center gap-1">
-                        <Star
-                          size={15}
-                          className="text-yellow-400"
-                        />
-
-                        {stats ? (
-                          stats.stargazers_count
-                        ) : (
-                          <span className="text-zinc-600">
-                            ...
-                          </span>
-                        )}
+                    <div className="mb-5 flex flex-wrap items-center gap-3 text-xs">
+                      <div className="flex items-center gap-1 rounded-full border border-zinc-700 bg-zinc-800/70 px-3 py-1 text-zinc-300">
+                        <Star size={13} className="text-yellow-400" />
+                        <span>{stats ? stats.stargazers_count : "..."}</span>
                       </div>
 
-                      <div className="flex items-center gap-1">
-                        <GitFork
-                          size={15}
-                          className="text-sky-400"
-                        />
-
-                        {stats ? (
-                          stats.forks_count
-                        ) : (
-                          <span className="text-zinc-600">
-                            ...
-                          </span>
-                        )}
+                      <div className="flex items-center gap-1 rounded-full border border-zinc-700 bg-zinc-800/70 px-3 py-1 text-zinc-300">
+                        <GitFork size={13} className="text-sky-400" />
+                        <span>{stats ? stats.forks_count : "..."}</span>
                       </div>
 
                       {stats?.language && (
-                        <span className="rounded-full bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-300">
+                        <div className="rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-blue-300">
                           {stats.language}
-                        </span>
+                        </div>
                       )}
                     </div>
 
                     {stats && (
-                      <div className="mb-5 flex items-center gap-2 text-xs text-zinc-500">
+                      <div className="mb-6 flex items-center gap-2 text-xs text-zinc-500">
                         <Calendar size={13} />
-
-                        Updated{" "}
-                        {new Date(
-                          stats.pushed_at
-                        ).toLocaleDateString()}
+                        Updated {formatRelativeDate(stats.pushed_at)}
                       </div>
                     )}
 
@@ -165,10 +161,10 @@ export default function Projects() {
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-zinc-300 transition hover:text-white"
+                            className="flex items-center gap-2 font-medium text-zinc-300 transition-colors hover:text-white"
                           >
                             <FaGithub size={18} />
-                            Code
+                            View Code
                           </a>
                         )}
 
@@ -179,7 +175,7 @@ export default function Projects() {
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-zinc-300 transition hover:text-white"
                           >
-                            Live
+                            Live Demo
                             <ArrowUpRight size={16} />
                           </a>
                         )}

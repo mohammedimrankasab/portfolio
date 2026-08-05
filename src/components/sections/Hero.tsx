@@ -86,26 +86,26 @@ export default function Hero({ personal }: HeroProps) {
             variants={fadeUpVar}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-4 leading-[1.05]"
           >
-            Building
-            <br className="hidden md:block" />
-            scalable
+            Building <span className="block md:inline">scalable</span>{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400">
-              {" "}
               backend platforms.
             </span>
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p
-            variants={fadeUpVar}
-            className="text-xl md:text-2xl text-zinc-400 max-w-2xl mb-8 leading-relaxed"
-          >
-            I'm{" "}
-            <span className="font-semibold text-white">{personal.name}</span>, a{" "}
-            {personal.headline}.
-            <br className="hidden md:block" />
-            {personal.subtitle}
-          </motion.p>
+         <motion.p
+  variants={fadeUpVar}
+  className="text-xl md:text-2xl text-zinc-400 max-w-2xl mb-8 leading-relaxed"
+>
+  I'm{" "}
+  <span className="font-semibold text-white">
+    {personal.name}
+  </span>{" "}
+  — {personal.headline}.
+  <span className="block mt-2">
+    {personal.subtitle}
+  </span>
+</motion.p>
 
           {/* Buttons */}
           <motion.div
@@ -127,6 +127,7 @@ export default function Hero({ personal }: HeroProps) {
 
             <a
               href="#contact"
+              onClick={() => trackEvent("navigation", "contact_click", "hero")}
               className="inline-flex items-center gap-2 bg-[#111111] border border-white/10 px-6 py-3 rounded-full text-white hover:bg-white/5 transition"
             >
               Contact Me
@@ -135,6 +136,7 @@ export default function Hero({ personal }: HeroProps) {
             <div className="flex items-center gap-2 ml-2">
               <a
                 href={personal.links.github}
+                aria-label="View GitHub profile"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition"
@@ -145,6 +147,7 @@ export default function Hero({ personal }: HeroProps) {
 
               <a
                 href={personal.links.linkedin}
+                aria-label="View LinkedIn profile"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/5 transition"
