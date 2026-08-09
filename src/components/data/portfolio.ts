@@ -215,6 +215,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       color: "from-orange-500/20 via-red-500/20 to-pink-500/20",
 
       icon: FaRobot,
+      highlights: [ "Production-style RAG service implemented in Go", "Integrates LLM inference with retrieval-augmented generation workflows", "Exposes a lightweight HTTP API for question-answering", "Uses local LLM inference through an Ollama-compatible model endpoint", "Designed with clear separation between API handling, retrieval, and generation", "Explores practical LLM application architecture in a Go backend", ],
     },
     {
       title: "Go Design Patterns",
@@ -243,6 +244,41 @@ export const PORTFOLIO_DATA: PortfolioData = {
         "Designed as an interview and production reference",
       ],
       quality: ["MIT License", "CI/CD", "Race Tested", "100% Coverage"],
+    },
+    {
+      title: "Kavrok — Deterministic Kubernetes Diagnostics CLI",
+      repo: "kavrok",
+      description:
+        "A Go-based Kubernetes troubleshooting tool that discovers cluster state, analyzes workload health, identifies unschedulable workloads and resource constraints, and produces human-readable and machine-readable diagnostic findings.",
+      tech: [
+        "Go",
+        "Kubernetes",
+        "client-go",
+        "Testing",
+        "Diagnostics",
+        "CLI",
+        "JSON",
+      ],
+      github: "https://github.com/mohammedimrankasab/kavrok",
+      featured: true,
+      status: "Open Source",
+      color: "from-cyan-500/20 via-blue-500/20 to-indigo-500/20",
+      icon: SiKubernetes,
+      highlights: [
+        "Deterministic Kubernetes cluster and workload diagnostics",
+        "Detects Pending and unschedulable pods with scheduler evidence",
+        "Resource-aware analysis for memory scheduling constraints",
+        "Structured findings with severity, diagnosis, and evidence",
+        "Human-readable CLI and machine-readable JSON output",
+        "Tested using controlled Kubernetes failure scenarios",
+      ],
+      quality: [
+        "MIT License",
+        "v0.4.0",
+        "Unit Tested",
+        "JSON Output",
+        "Deterministic Diagnostics",
+      ],
     },
   ],
   skills: {
