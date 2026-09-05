@@ -51,7 +51,7 @@ export default function Contact() {
             }}
             className="text-xl text-zinc-400 mb-6 max-w-xl"
           >
-            Open for new opportunities and interesting projects. Let's connect.
+            Open for {/*new opportunities and*/} interesting projects. Let's connect.
           </motion.p>
 
           <motion.a

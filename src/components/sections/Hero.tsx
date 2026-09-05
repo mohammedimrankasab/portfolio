@@ -70,7 +70,7 @@ export default function Hero({ personal }: HeroProps) {
           className="max-w-4xl"
         >
           {/* Availability */}
-          <motion.div
+          {/* <motion.div
             variants={fadeUpVar}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8"
           >
@@ -79,7 +79,7 @@ export default function Hero({ personal }: HeroProps) {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
             </span>
             Available for opportunities
-          </motion.div>
+          </motion.div> */}
 
           {/* Heading */}
           <motion.h1
